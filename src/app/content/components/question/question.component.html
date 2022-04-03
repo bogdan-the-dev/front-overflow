@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="question">
+    <span class="h3">Title: {{question.title}}</span>
+    <span class="h5">{{question.text}}</span>
+    <br>
+    <span>Asked by {{question.username}}</span>
+    <div class="input-group">
+      <a href="/upvote"><i class="fa-solid fa-thumbs-up"></i></a>
+      <span>{{question.upVotes}}   </span>
+      <a href="/downvote"><i class="fa-solid fa-thumbs-down"></i></a>
+      <span>{{question.downVotes}}</span>
+    </div>
+
+  </div>
+</div>
