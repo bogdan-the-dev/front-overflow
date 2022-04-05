@@ -5,6 +5,7 @@
       <br>
       <span class="h5">{{question.text}}</span>
       <br>
+      <app-tags [tags]="question.tags"></app-tags>
       <span>Asked by {{question.username}} {{question.userScore}}p on {{question.creationDate | date: 'dd-MM-yyyy' }}</span>
       <div class="input-group pad">
         <a href="/upvote"><i class="fa-solid fa-thumbs-up"></i></a>&nbsp;

@@ -1,0 +1,7 @@
+<app-navigation-bar></app-navigation-bar>
+<div *ngIf="tags" class="flex-container">
+  <div *ngFor="let tag of tags" class="tag post-container">
+    <app-tags [tags]="[tag.name]"></app-tags>
+  </div>
+</div>
+

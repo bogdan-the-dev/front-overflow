@@ -1,4 +1,3 @@
-import {Tag} from "./tag.model";
 import {Answer} from "./answer.model";
 
 export interface Question {
@@ -11,7 +10,7 @@ export interface Question {
   downVotes: bigint
   username: String
   userScore: bigint
-  tags: Tag[]
+  tags: string[]
   answers?: Answer[]
 
 
