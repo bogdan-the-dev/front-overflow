@@ -28,6 +28,7 @@
     "bootstrap-scss": "^4.6.1",
     "mdb-ui-kit": "^3.11.0",
     "primeng": "^13.3.2",
+    "protractor": "^7.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

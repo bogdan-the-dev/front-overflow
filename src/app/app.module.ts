@@ -16,6 +16,8 @@ import {UserComponent} from "./content/components/user/user.component";
 import {UsersPageComponent} from "./content/pages/users/users.page.component";
 import {UserPageComponent} from "./content/pages/user/user.page.component";
 import {AboutPageComponent} from "./content/pages/about/about.page.component";
+import {LoginPageComponent} from "./content/pages/login/login.page.component";
+import {RegisterPageComponent} from "./content/pages/register/register.page.component";
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import {AboutPageComponent} from "./content/pages/about/about.page.component";
     UserComponent,
     UsersPageComponent,
     UserPageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,8 @@ import {QuestionPageComponent} from "./content/pages/question/question-page-comp
 import {UsersPageComponent} from "./content/pages/users/users.page.component";
 import {UserPageComponent} from "./content/pages/user/user.page.component";
 import {AboutPageComponent} from "./content/pages/about/about.page.component";
+import {LoginPageComponent} from "./content/pages/login/login.page.component";
+import {RegisterPageComponent} from "./content/pages/register/register.page.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -14,7 +16,10 @@ const routes: Routes = [
   {path: 'questions/question/:id', component: QuestionPageComponent},
   {path: 'users', component: UsersPageComponent},
   {path: 'users/user/:username', component: UserPageComponent},
-  {path: 'about', component: AboutPageComponent}
+  {path: 'about', component: AboutPageComponent},
+  {path: 'login', component: LoginPageComponent},
+  {path: 'register', component: RegisterPageComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
