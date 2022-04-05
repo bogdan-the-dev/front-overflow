@@ -1,0 +1,7 @@
+<app-navigation-bar></app-navigation-bar>
+<div *ngIf="question!=undefined">
+  <app-question-component [question]="question"></app-question-component>
+  <div *ngIf="question.answers!=undefined"  >
+    <app-answer-component *ngFor="let answer of question.answers" [answer]="answer"></app-answer-component>
+  </div>
+</div>

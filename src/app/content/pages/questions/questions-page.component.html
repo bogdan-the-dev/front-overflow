@@ -1,0 +1,13 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-4">
+    <h2 class="text">All questions</h2>
+  </div>
+  <div class="col-md-3"></div>
+  <div class="col-md-2 text-right">
+    <a class="btn btn-info" (click)="redirectToCreateQuestion()"><i class="fas fa-plus"></i>&nbsp;Add a Question</a>
+  </div>
+</div>
+<app-question-component *ngFor="let question of questions" [question]="question"></app-question-component>
+

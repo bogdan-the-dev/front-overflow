@@ -1,0 +1,12 @@
+<app-navigation-bar></app-navigation-bar>
+<div *ngIf="user!= undefined">
+  <app-user-component [user]="user"></app-user-component>
+  <div *ngIf="userQuestions.length == 0">
+    <br>
+    <span class="h3 centered-message">This user doesn't have any posted questions</span>
+  </div>
+
+  <div *ngIf="userQuestions != undefined">
+  <app-question-component *ngFor="let question of userQuestions" [question]="question"></app-question-component>
+</div>
+</div>

@@ -1,3 +1,3 @@
-export class Role {
-
+export interface Role {
+  name:String
 }

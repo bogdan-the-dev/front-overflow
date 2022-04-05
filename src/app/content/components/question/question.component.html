@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="question">
-    <span class="h3">Title: {{question.title}}</span>
-    <span class="h5">{{question.text}}</span>
-    <br>
-    <span>Asked by {{question.username}}</span>
-    <div class="input-group">
-      <a href="/upvote"><i class="fa-solid fa-thumbs-up"></i></a>
-      <span>{{question.upVotes}}   </span>
-      <a href="/downvote"><i class="fa-solid fa-thumbs-down"></i></a>
-      <span>{{question.downVotes}}</span>
+  <div class="question card mb-4">
+    <div class="pad" (click)="redirectToQuestionPage()">
+      <span class="h3">{{question.title}}</span>
+      <br>
+      <span class="h5">{{question.text}}</span>
+      <br>
+      <span>Asked by {{question.username}} {{question.userScore}}p on {{question.creationDate | date: 'dd-MM-yyyy' }}</span>
+      <div class="input-group pad">
+        <a href="/upvote"><i class="fa-solid fa-thumbs-up"></i></a>&nbsp;
+        <span>{{question.upVotes}}&nbsp;&nbsp;</span>
+        <a href="/downvote"><i class="fa-solid fa-thumbs-down"></i></a>&nbsp;
+        <span>{{question.downVotes}}</span>
+      </div>
     </div>
-
   </div>
 </div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="answer card mb-2">
+    <div class="pad">
+      <span class="h5">{{answer.answerBody}}</span>
+      <br>
+      <span>Answered by {{answer.username}} on {{answer.date | date: 'dd-MM-yyyy' }}</span>
+      <br>
+      <div class="input-group pad">
+        <a><i class="fa-solid fa-thumbs-up"></i></a>
+        &nbsp;
+        <span>{{answer.upVotes}}</span>
+        &nbsp;&nbsp;
+        <a><i class="fa-solid fa-thumbs-down"></i></a>
+        &nbsp;
+        <span>{{answer.downVotes}}</span>
+      </div>
+    </div>
+  </div>
+</div>

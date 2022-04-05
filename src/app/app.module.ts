@@ -8,6 +8,14 @@ import {HomeComponent} from "./content/pages/home/home.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {TagComponent} from "./content/components/tag/tag.component";
 import {QuestionComponent} from "./content/components/question/question.component";
+import {HttpClientModule} from "@angular/common/http";
+import {QuestionsPageComponent} from "./content/pages/questions/questions-page.component";
+import {AnswerComponent} from "./content/components/answer/answer.component";
+import {QuestionPageComponent} from "./content/pages/question/question-page-component";
+import {UserComponent} from "./content/components/user/user.component";
+import {UsersPageComponent} from "./content/pages/users/users.page.component";
+import {UserPageComponent} from "./content/pages/user/user.page.component";
+import {AboutPageComponent} from "./content/pages/about/about.page.component";
 
 
 @NgModule({
@@ -16,15 +24,22 @@ import {QuestionComponent} from "./content/components/question/question.componen
     NavigationBarComponent,
     HomeComponent,
     TagComponent,
-    QuestionComponent
+    QuestionComponent,
+    QuestionsPageComponent,
+    AnswerComponent,
+    QuestionPageComponent,
+    UserComponent,
+    UsersPageComponent,
+    UserPageComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    []
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [ AppComponent, NavigationBarComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
