@@ -1,7 +1,8 @@
 export interface Vote {
 
-  username: String
-  score: bigint
-  answerId: bigint
+  username: string
+  score?: number
+  questionId?: number
+  answerId?: number
 
 }

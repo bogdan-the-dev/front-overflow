@@ -4,6 +4,12 @@
       <span class="h6">{{user.username}}</span>
       &nbsp;&nbsp;
       <span>{{user.score}}p</span>
+      &nbsp;
+      &nbsp;
+      <a [hidden]="!user.accountBanned" ><i class="fa-solid fa-ban"></i></a>
+    </div>
+    <div>
+      <a [hidden]="!displayBanButton()" (click)="banUser()" style="border-radius: 10px; border-width: thin; border-style: solid">&nbsp;Ban user&nbsp;</a>
     </div>
     <span>{{user.role.name}}</span>
   </div>

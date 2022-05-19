@@ -1,18 +1,29 @@
 <div class="container">
   <div class="answer card mb-2">
     <div class="pad">
-      <span class="h5">{{answer.answerBody}}</span>
+      <div>
+      <span [hidden]="editEnable()" class="h5">{{answer.answerBody}}</span>
+        <textarea #input [hidden]="!editEnable()">{{answer.answerBody}}</textarea>
+        &nbsp;
+        <a [hidden]="!editEnable()" (click)="save()"><i class="fa-solid fa-check"></i></a>
+      &nbsp;
+        <a [hidden]="!enableDelete()" (click)="delete()" ><i class="fa-solid fa-trash"></i></a>
+        &nbsp;
+        <a [hidden]="!enableDelete()" (click)="enableEdit()"><i class="fa-solid fa-pencil"></i></a>
+      </div>
       <br>
-      <span>Answered by {{answer.username}} on {{answer.date | date: 'dd-MM-yyyy' }}</span>
+      <span>Answered by {{answer.username}}  {{answer.userScore}}p on {{answer.date | date: 'dd-MM-yyyy' }} at {{answer.date | date: 'HH:mm'}} </span>
       <br>
       <div class="input-group pad">
-        <a><i class="fa-solid fa-thumbs-up"></i></a>
+        <a [class.voted]="vote == 1" (click)="upVote()" ><i class="fa-solid fa-thumbs-up"></i></a>
         &nbsp;
         <span>{{answer.upVotes}}</span>
         &nbsp;&nbsp;
-        <a><i class="fa-solid fa-thumbs-down"></i></a>
+        <a [class.voted]="vote == -1" (click)="downVote()"><i class="fa-solid fa-thumbs-down"></i></a>
         &nbsp;
         <span>{{answer.downVotes}}</span>
+        &nbsp;
+        <span>{{'Score: ' + (answer.upVotes - answer.downVotes).toString()}}</span>
       </div>
     </div>
   </div>

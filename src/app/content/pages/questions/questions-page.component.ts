@@ -22,5 +22,7 @@ export class QuestionsPageComponent {
   redirectToCreateQuestion() {
     this.router.navigate(['questions', 'add-question'])
   }
-
+  isLoggedIn() : boolean {
+    return localStorage['username']
+  }
 }

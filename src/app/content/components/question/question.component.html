@@ -1,17 +1,28 @@
 <div class="container">
   <div class="question card mb-4">
     <div class="pad" (click)="redirectToQuestionPage()">
-      <span class="h3">{{question.title}}</span>
+      <span [hidden]="edit" class="h3">{{question.title}}</span>
+      <input #title [hidden]="!edit" type="text" value="{{question.title}}">
+      &nbsp;
+      <a [hidden]="!edit" (click)="saveQuestion()" ><i class="fa-solid fa-check"></i></a>
+      &nbsp;
+      <a [hidden]="!powerUser()" (click)="deleteQuestion()" ><i class="fa-solid fa-trash"></i></a>
+      &nbsp;
+      <a [hidden]="!powerUser()" (click)="toggleEdit()" ><i class="fa-solid fa-pencil"></i></a>
       <br>
-      <span class="h5">{{question.text}}</span>
+      <br>
+      <span [hidden]="edit" class="h5">{{question.text}}</span>
+      <textarea [hidden]="!edit" #body >{{question.text}}</textarea>
       <br>
       <app-tags [tags]="question.tags"></app-tags>
-      <span>Asked by {{question.username}} {{question.userScore}}p on {{question.creationDate | date: 'dd-MM-yyyy' }}</span>
+      <span>Asked by {{question.username}} {{question.userScore}}p on {{question.creationDate | date: 'dd-MM-yyyy' }} at {{question.creationDate | date: 'HH:mm'}}</span>
       <div class="input-group pad">
-        <a href="/upvote"><i class="fa-solid fa-thumbs-up"></i></a>&nbsp;
+        <a [class.voted]="vote == 1" (click)="upVote()"><i class="fa-solid fa-thumbs-up"></i></a>&nbsp;
         <span>{{question.upVotes}}&nbsp;&nbsp;</span>
-        <a href="/downvote"><i class="fa-solid fa-thumbs-down"></i></a>&nbsp;
+        <a [class.voted]="vote == -1" (click)="downVote()"><i class="fa-solid fa-thumbs-down"></i></a>&nbsp;
         <span>{{question.downVotes}}</span>
+        <a>&nbsp;&nbsp;</a>
+        <span>{{' Score: ' + (question.upVotes - question.downVotes).toString()}}</span>
       </div>
     </div>
   </div>

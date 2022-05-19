@@ -18,14 +18,13 @@
             <br />
             <div class="col-md-10 offset-md-1">
               <section>
-                <form id="account" method="post">
-                  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                   <div class="row">
                     <div>
-                      <label class="form-label">Email</label>
+                      <label class="form-label">Username</label>
                     </div>
                     <div class="form-floating">
-                      <input class="form-control" autocomplete="username" aria-required="true" />
+                      <input #username class="form-control" autocomplete="username" aria-required="true" />
                     </div>
                   </div>
                   <br />
@@ -36,19 +35,19 @@
 
                     </div>
                     <div class="form-floating" style="border-radius: 5px;">
-                      <input  class="form-control" autocomplete="current-password" aria-required="true" />
+                      <input #password class="form-control" autocomplete="current-password" type="password" aria-required="true" />
 
                     </div>
                   </div>
                   <br>
                   <div>
-                    <button id="login-submit" type="submit" class="btn btn-lg btn-primary" style="border-radius: 21px;">Log in</button>
+                    <button id="login-submit" (click)="login()" class="btn btn-lg btn-primary" style="border-radius: 21px;">Log in</button>
                   </div>
                   <br />
                   <div>
 
                   </div>
-                </form>
+
               </section>
             </div>
 

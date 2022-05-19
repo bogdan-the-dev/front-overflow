@@ -2,13 +2,13 @@ import {Role} from "./role.model";
 
 export interface User {
 
-  id: String
-  username: String
-  email: String
+  id: string
+  username: string
+  email: string
   accountVerified: boolean
   accountBanned: boolean
   accountBlocked: boolean
-  score: bigint
+  score: number
   twoFactorAuthentication: boolean
   role: Role
 }

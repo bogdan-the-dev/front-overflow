@@ -12,7 +12,7 @@ describe('test module for tag service', () => {
     })
   })
 
-  it('i should be able to instantiate tag service', () => {
+  it('i should be able to instantiate tag service', (z) => {
     expect(TestBed.get(TagService)).toBeTruthy()
   })
 

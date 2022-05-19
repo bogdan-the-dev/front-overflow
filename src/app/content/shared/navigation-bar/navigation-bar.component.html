@@ -48,11 +48,19 @@
             </form>
           </li>
         </ul>
-        <ul class="navbar-nav">
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+          <ul class="navbar-nav flex-grow-1">
           <li class="nav-item">
-              <a class="nav-link text-dark" href="/login">Account</a>
+              <a class="nav-link text-dark" [hidden]="isLoggedIn()" href="/login">Account</a>
           </li>
+            <li class="nav-item">
+            <a class="nav-link text-dark" (click)="goToUser()" [hidden]="!isLoggedIn()">{{"Hi, " + getUsername()}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark logout" [hidden]="!isLoggedIn()" (click)="logout()" >Logout</a>
+            </li>
         </ul>
+      </div>
       </div>
     </div>
   </nav>

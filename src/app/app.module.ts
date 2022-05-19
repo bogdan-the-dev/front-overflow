@@ -21,6 +21,8 @@ import {RegisterPageComponent} from "./content/pages/register/register.page.comp
 import {TagsPageComponent} from "./content/pages/tags/tags.page.component";
 import {TagQuestionsPageComponent} from "./content/pages/questions-by-tag/tag.questions.page.component";
 import {AddQuestionPageComponent} from "./content/pages/add-question/add-question.page.component";
+import {AlertifyService} from "../services/alertifyService";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -44,13 +46,14 @@ import {AddQuestionPageComponent} from "./content/pages/add-question/add-questio
     TagQuestionsPageComponent,
     AddQuestionPageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    HttpClientModule
-  ],
-  providers: [],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        HttpClientModule,
+        FormsModule
+    ],
+  providers: [AlertifyService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

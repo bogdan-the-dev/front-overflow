@@ -4,11 +4,13 @@
   <div *ngIf="question.answers!=undefined"  >
     <app-answer-component *ngFor="let answer of question.answers" [answer]="answer"></app-answer-component>
   </div>
+  <div [hidden]="!isLoggedIn()">
   <div class="input-group container">
-    <textarea id="answer" name="answer" placeholder="Write something.." style="height:200px; width: 100%; border-radius: 5px;"></textarea>
+    <textarea #answerBody id="answer" name="answer" placeholder="Write something.." style="height:200px; width: 100%; border-radius: 5px;"></textarea>
   </div>
   <div class="container">
     <br>
-    <button class="btn btn-success">Post your answer</button>
+    <button (click)="addAnswer()" class="btn btn-success">Post your answer</button>
+  </div>
   </div>
 </div>
