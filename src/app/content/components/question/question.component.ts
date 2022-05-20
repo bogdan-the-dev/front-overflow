@@ -78,7 +78,6 @@ export class QuestionComponent{
           case 1:
             voteDTO.score = -1
             this.changeVote(voteDTO)
-            //change
             break
           case -1:
             this.deleteVote(voteDTO)

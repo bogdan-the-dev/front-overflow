@@ -1,6 +1,6 @@
-import {Component} from "@angular/core";
+import {Component, ElementRef, ViewChild} from "@angular/core";
 import {AlertifyService} from "../../../../services/alertifyService";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -12,7 +12,9 @@ import {Router} from "@angular/router";
 
 export class NavigationBarComponent
 {
-  constructor(private alertifyService: AlertifyService, private router:Router) {
+  @ViewChild('searchbar') searchbarElement!: ElementRef
+
+  constructor(private alertifyService: AlertifyService, private router:Router, ) {
   }
 
   isLoggedIn(): boolean {
@@ -32,6 +34,16 @@ export class NavigationBarComponent
       localStorage.clear()
       this.router.navigate(['/home'])
     })
+  }
 
+  search() {
+    const searchbarText = this.searchbarElement.nativeElement.value
+    if(searchbarText.length == 0)
+      this.router.navigate(['questions'])
+    else {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload'
+      this.router.navigate(['questions'], {queryParams: {search: searchbarText}})
+    }
   }
 }

@@ -1,7 +1,7 @@
 import {Question} from "../../../../model/question.model";
 import {QuestionService} from "../../../../services/questionService";
 import {Component} from "@angular/core";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-questions-page-component',
@@ -14,11 +14,25 @@ import {Router} from "@angular/router";
 export class QuestionsPageComponent {
   questions: Question[] = []
 
-  constructor(private questionService: QuestionService, private router:Router) {
-    this.questionService.getAllQuestions().subscribe(response => {
-      this.questions = response
+  constructor(private questionService: QuestionService, private router:Router, private route:ActivatedRoute) {
+
+  }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(param => {
+      let text = param["search"]
+      if (text == undefined)
+        this.questionService.getAllQuestions().subscribe(response => {
+          this.questions = response
+        })
+      else {
+        this.questionService.getQuestionsSearch(text).subscribe(res => {
+          this.questions = res
+        })
+      }
     })
   }
+
   redirectToCreateQuestion() {
     this.router.navigate(['questions', 'add-question'])
   }

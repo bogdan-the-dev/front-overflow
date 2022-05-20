@@ -10,6 +10,8 @@ export class QuestionService{
   private addQuestionEndpoint: string = 'http://localhost:8080/questions/create-question'
   private updateQuestionEndpoint: string = 'http://localhost:8080/questions/save-question'
   private deleteQuestionEndpoint: string = 'http://localhost:8080/questions/delete-question?id='
+  private searchQuestionEndpoint: string = 'http://localhost:8080/questions/search?name='
+
 
   private httpOptions!: {};
 
@@ -46,5 +48,9 @@ export class QuestionService{
 
   deleteQuestion(id: number | undefined): Observable<string> {
     return this.httpClient.delete<string>(this.deleteQuestionEndpoint + id, this.httpOptions)
+  }
+
+  getQuestionsSearch(name: string): Observable<Question[]> {
+    return this.httpClient.get<Question[]>(this.searchQuestionEndpoint + name)
   }
 }

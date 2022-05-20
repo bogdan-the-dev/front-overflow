@@ -35,17 +35,15 @@
             <a class="nav-link text-dark" href="/about">About Us</a>
           </li>
           <li class="nav-item">
-            <form>
               <div class="input-group">
                 <div class="form-outline">
-                  <input type="search" id="searchField" class="form-control" name="name"/>
+                  <input #searchbar type="search" id="searchField" class="form-control" name="name"/>
                   <label class="form-label" for="searchField">Search</label>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button (click)="search()" class="btn btn-primary">
                   <i class="fas fa-search"></i>
                 </button>
               </div>
-            </form>
           </li>
         </ul>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
