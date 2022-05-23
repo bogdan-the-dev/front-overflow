@@ -14,6 +14,10 @@
       <span [hidden]="edit" class="h5">{{question.text}}</span>
       <textarea [hidden]="!edit" #body >{{question.text}}</textarea>
       <br>
+      <div [hidden]="!edit">
+      <br>
+        <input #tag (change)="changeTag()">
+      </div>
       <app-tags [tags]="question.tags"></app-tags>
       <span>Asked by {{question.username}} {{question.userScore}}p on {{question.creationDate | date: 'dd-MM-yyyy' }} at {{question.creationDate | date: 'HH:mm'}}</span>
       <div class="input-group pad">

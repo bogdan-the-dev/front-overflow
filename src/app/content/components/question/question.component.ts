@@ -19,6 +19,7 @@ export class QuestionComponent{
 
   @ViewChild('title') titleElement!: ElementRef
   @ViewChild('body') bodyElement!: ElementRef
+  @ViewChild('tag') tagElement!: ElementRef
 
   edit: boolean = false
 
@@ -121,6 +122,18 @@ export class QuestionComponent{
       })
     }
 
+    changeTag() {
+      const tag: string = this.tagElement.nativeElement.value
+      if (tag != '') {
+        if (this.question.tags.includes(tag)) {
+          this.question.tags = this.question.tags.filter(t => t != tag)
+        } else {
+          this.question.tags.push(tag);
+        }
+        this.tagElement.nativeElement.value = ''
+      }
+    }
+
   redirectToQuestionPage() {
     this.router.navigate(['questions', 'question', this.question.questionId])
   }
@@ -129,7 +142,7 @@ export class QuestionComponent{
     if(!localStorage['userRole'])
       return false
     const role: Role = JSON.parse(localStorage['userRole'])
-    return role.name == 'moderator'
+    return role.name == 'moderator' || this.question.username == localStorage['username']
   }
 
   toggleEdit() {
@@ -153,10 +166,6 @@ export class QuestionComponent{
     const newTitle: string = this.titleElement.nativeElement.value
     const newBody: string = this.bodyElement.nativeElement.value
 
-    if(newTitle == this.question.title && newBody == this.question.text) {
-      this.alertifyService.warning('The question is the same')
-      this.edit = false
-    } else {
       this.question.title = newTitle
       this.question.text = newBody
       this.questionService.updateQuestion(this.question).subscribe(res => {
@@ -169,6 +178,4 @@ export class QuestionComponent{
         }
       })
     }
-
-  }
 }

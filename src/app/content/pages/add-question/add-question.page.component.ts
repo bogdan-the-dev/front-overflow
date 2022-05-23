@@ -36,9 +36,13 @@ export class AddQuestionPageComponent {
   }
 
   addTag() {
-    let tag:string = this.tagField.nativeElement.value
+    let tag: string = this.tagField.nativeElement.value
     this.tagField.nativeElement.value = ''
-    this.tags.push(tag)
+    if (this.tags.includes(tag)) {
+      this.tags = this.tags.filter(t => t != tag)
+    } else {
+      this.tags.push(tag)
+    }
   }
 
 }
