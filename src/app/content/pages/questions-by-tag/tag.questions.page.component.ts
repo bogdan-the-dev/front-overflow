@@ -16,4 +16,9 @@ export class TagQuestionsPageComponent {
   constructor(private tagService: TagService, private activatedRoute:ActivatedRoute) {
     this.tagService.getQuestionsByTag(this.activatedRoute.snapshot.params['tag']).subscribe(result => {this.questions = result})
   }
+
+  ngOnInit() {
+    this.tagService.getQuestionsByTag(this.activatedRoute.snapshot.params['tag']).subscribe(result => {this.questions = result})
+  }
+
 }
